@@ -10,3 +10,14 @@ services:
     command: "python src/accent_bot/run.py"
     ports:
       - "0.0.0.0:80:80"
+
+  predictor:
+    build: . # maps the directory that contains the Dockerfile
+    image: keras-accent-training
+    container_name:  accent_predictor
+    command: "python webserver/serve.py"
+    environment: 
+      - PORT=8080
+      - HOST="0.0.0.0"
+    ports:
+      - "8080:8080"
