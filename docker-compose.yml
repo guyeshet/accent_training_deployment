@@ -2,15 +2,6 @@ version: '3'
 
 services:
 
-  # change to have everything in one docker
-  bot:
-    build: ../accent-bot # maps the directory that contains the Dockerfile
-    image: bot
-    container_name: telegram_bot
-    command: "python src/accent_bot/run.py"
-    ports:
-      - "0.0.0.0:80:80"
-
   predictor:
     build: ../keras-accent-trainer # maps the directory that contains the Dockerfile
     image: keras-accent-training
@@ -23,3 +14,14 @@ services:
       - MODEL_NUM=4089305544804f5689faf7cce3e84258
     ports:
       - "8080:8080"
+
+  # change to have everything in one docker
+  bot:
+    build: ../accent-bot # maps the directory that contains the Dockerfile
+    image: bot
+    container_name: telegram_bot
+    command: "python src/accent_bot/run.py"
+    ports:
+      - "0.0.0.0:80:80"
+    depends_on: 
+      - predictor
