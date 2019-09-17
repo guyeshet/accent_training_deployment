@@ -19,5 +19,7 @@ services:
     environment: 
       - PORT=8080
       - HOST="0.0.0.0"
+      - MODEL_TYPE=usa_english_speakers
+      - MODEL_NUM=ba71cbd87cf240d0a9f4e9584982366d
     ports:
       - "8080:8080"
