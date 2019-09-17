@@ -18,7 +18,7 @@ services:
     command: "python webserver/serve.py"
     environment: 
       - PORT=8080
-      - HOST="0.0.0.0"
+      - HOST=0.0.0.0
       - MODEL_TYPE=usa_english_speakers
       - MODEL_NUM=4089305544804f5689faf7cce3e84258
     ports:
