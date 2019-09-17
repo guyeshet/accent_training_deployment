@@ -23,6 +23,8 @@ services:
     image: bot
     container_name: telegram_bot
     command: "python src/accent_bot/run.py"
+    environment:
+      - PREDICTION_HOST=http://predictor:8080
     ports:
       - "0.0.0.0:80:80"
     depends_on: 
