@@ -14,6 +14,8 @@ services:
       - MODEL_NUM=4089305544804f5689faf7cce3e84258
     ports:
       - "8080:8080"
+    volumes: 
+      - /share/uploads:/app/webserver/uploads
 
   # change to have everything in one docker
   bot:
