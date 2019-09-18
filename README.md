@@ -24,7 +24,7 @@ It follows the Comet-ML experiment IDs folder scheme
 ```
 ├── <experiment name>     - this folder contains all experiments in a certain type
     ├── <experiment id>   - multiple folder for every experiement.
-        |── model.h5
+        |── model.h5      - save Keras model weights
 ```
 
 ## Deployment
