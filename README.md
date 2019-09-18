@@ -1,6 +1,15 @@
 # Deployment for the Accent Training project
 
 This project is used to deploy a telgeram bot and an accent prediction algorithm.
+There are two optional compose files
+
+1. keras_training
+   1. Used to train and learn
+2. prediciton_bot
+   1. Used to serve the mode in a predictor and loads a chatbot that interfaces with it.
+
+The project is seperated into two docker-compose files for convinice, but they share a volume for the saved models
+
 
 ## Development Installation
 1. In the same folder clode the following repositories:

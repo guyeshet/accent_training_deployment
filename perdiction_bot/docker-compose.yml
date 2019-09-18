@@ -16,6 +16,7 @@ services:
       - "8080:8080"
     volumes: 
       - /share/uploads:/app/webserver/uploads
+      - /share/saved_models:/app/saved_models
 
   # change to have everything in one docker
   bot:
