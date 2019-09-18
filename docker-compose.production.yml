@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+
+  bot:
+    environment:
+      - BOT_ID=<REPLAE_WITH_REAL_ID>
