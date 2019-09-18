@@ -5,7 +5,7 @@ services:
   trainer:
     build: ../../keras-accent-trainer # maps the directory that contains the Dockerfile
     image: keras-accent-training
-    container_name:  accent_predictor
+    container_name:  accent_predictor_trainer
     command: "python accent_dataset/create.py && python run_from_config -c configs/usa_english_speakers.json"
     volumes: 
       - /share/datasets:/app/datasets
