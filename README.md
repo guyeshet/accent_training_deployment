@@ -31,9 +31,10 @@ The project is seperated into two docker-compose files for convinice, but they s
 The compose file for production chooses the ID served model
 It follows the Comet-ML experiment IDs folder scheme
 ```
-├── <experiment name>     - this folder contains all experiments in a certain type
-    ├── <experiment id>   - multiple folder for every experiement.
-        |── model.h5      - save Keras model weights
+├── saved_models              - parent directory shared in a volume
+    ├── <experiment name>     - this folder contains all experiments in a certain type
+        ├── <experiment id>   - multiple folder for every experiement.
+            |── model.h5      - save Keras model weights
 ```
 
 ## Deployment
