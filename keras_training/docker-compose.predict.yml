@@ -10,6 +10,4 @@ services:
     volumes:
       - /share/datasets:/app/datasets
       - /share/saved_models:/app/saved_models
-      - /share/configs:/app/configs
-
 

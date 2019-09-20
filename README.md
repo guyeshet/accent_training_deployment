@@ -26,7 +26,7 @@ docker-compose -f "keras_training/docker-compose.yml" up -d --build
 
 To run the prediction
 ```
-docker-compose -f "keras_training/docker-compose.predict.yml" up -d --build
+docker-compose -f "keras_training/docker-compose.predict.yml" up -d
 ```
 
 ## Deploying prediction_bot
