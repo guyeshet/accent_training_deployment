@@ -30,7 +30,8 @@ docker-compose -f "keras_training/docker-compose.predict.yml" up
 ```
 
 ## Choosing a Prediction model
-The compose file for production chooses the ID served model
+The compose file for production chooses the ID served model.
+When running through compose the saved models are located in */share/saved_models*
 It follows the Comet-ML experiment IDs folder scheme
 ```
 ├── saved_models              - parent directory shared in a volume

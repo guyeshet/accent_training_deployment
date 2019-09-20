@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+
+  bot:
+    environment:
+      - BOT_ID=874455740:AAF-ipcxqBYcvzBkTS16TKLYCPqkPCcytw0
+
+  predictor:
+    environment:
+      - MODEL_TYPE=usa_english_speakers
+      - MODEL_NUM=4089305544804f5689faf7cce3e84258
