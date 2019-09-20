@@ -9,4 +9,4 @@ services:
   predictor:
     environment:
       - MODEL_TYPE=usa_english_speakers
-      - MODEL_NUM=4089305544804f5689faf7cce3e84258
+      - MODEL_NUM=cc1ab98bec194d9b8fbbe3ecb21c95d6
