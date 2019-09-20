@@ -21,17 +21,28 @@ The project is seperated into two docker-compose files for convinice which share
 ## Deploying keras_training
 To load the artifacts and create the csv file:
 ```
-docker-compose -f "keras_training/docker-compose.yml" up -d --build
+docker-compose -f "keras_training/docker-compose.yml" up --build
 ```
 
 To run the prediction
 ```
-docker-compose -f "keras_training/docker-compose.predict.yml" up -d
+docker-compose -f "keras_training/docker-compose.predict.yml" up
+```
+
+## Choosing a Prediction model
+The compose file for production chooses the ID served model
+It follows the Comet-ML experiment IDs folder scheme
+```
+├── saved_models              - parent directory shared in a volume
+    ├── <experiment name>     - this folder contains all experiments in a certain type
+        ├── <experiment id>   - multiple folder for every experiement.
+            |── model.h5      - save Keras model weights
 ```
 
 ## Deploying prediction_bot
 1. Update *BOT_ID* in **docker-compose.production.yml** with your Telegram Bot ID
 2. Update *MODEL_TYPE* and *MODEL_NUM* in **docker-compose.production.yml** with the models you want to serve
+   The model depend on the model you trained in the previous stage
 3. Stop tracking *docker-compose.production.yml*:
     ```
     git update-index --assume-unchanged docker-compose.production.yml
@@ -42,14 +53,5 @@ docker-compose -f "keras_training/docker-compose.predict.yml" up -d
     ```
 5. run:
     ```
-    docker-compose -f "prediction_bot/docker-compose.yml" up -d --build
+    docker-compose -f "prediction_bot/docker-compose.yml" -f "prediction_bot/docker-compose.production.yml" up -d --build
     ```
-## Choosing a Prediction model
-The compose file for production chooses the ID served model
-It follows the Comet-ML experiment IDs folder scheme
-```
-├── saved_models              - parent directory shared in a volume
-    ├── <experiment name>     - this folder contains all experiments in a certain type
-        ├── <experiment id>   - multiple folder for every experiement.
-            |── model.h5      - save Keras model weights
-```
