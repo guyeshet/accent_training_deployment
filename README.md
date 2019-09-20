@@ -19,9 +19,14 @@ The project is seperated into two docker-compose files for convinice which share
    - [accent-training-deployment](https://github.com/guyeshet/accent-training-deployment.git)
 
 ## Deploying keras_training
-Simply run:
+To load the artifacts and create the csv file:
 ```
 docker-compose -f "keras_training/docker-compose.yml" up -d --build
+```
+
+To run the prediction
+```
+docker-compose -f "keras_training/docker-compose.predict.yml" up -d --build
 ```
 
 ## Deploying prediction_bot
