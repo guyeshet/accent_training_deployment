@@ -7,9 +7,6 @@ services:
     image: keras-accent-training
     container_name:  accent_predictor
     command: "python webserver/serve.py"
-    environment: 
-      - PORT=8080
-      - HOST=0.0.0.0
     ports:
       - "8080:8080"
     volumes: 
@@ -20,25 +17,8 @@ services:
     image: keras-accent-training
     container_name:  accent_predictor
     command: "python webserver/serve.py"
-    environment:
-      - PORT=8080
-      - HOST=0.0.0.0
     ports:
-      - "8080:8080"
-    volumes:
-      - /share/uploads:/app/webserver/uploads
-
-
-  predictor:
-    build: ../../keras-accent-trainer # maps the directory that contains the Dockerfile
-    image: keras-accent-training
-    container_name:  accent_predictor
-    command: "python webserver/serve.py"
-    environment:
-      - PORT=8080
-      - HOST=0.0.0.0
-    ports:
-      - "8080:8080"
+      - "8081:8080"
     volumes:
       - /share/uploads:/app/webserver/uploads
 
@@ -49,9 +29,9 @@ services:
     container_name: telegram_bot
     command: "python src/accent_bot/run.py"
     environment:
-      - PREDICTION_API=http://predictor:8080
       - BOT_ID=XXXX
     ports:
       - "0.0.0.0:80:80"
     depends_on: 
-      - predictor
+      - usa_predictor
+      - uk_predictor
