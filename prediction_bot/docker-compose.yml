@@ -2,7 +2,7 @@ version: '3'
 
 services:
 
-  predictor:
+  uk_predictor:
     build: ../../keras-accent-trainer # maps the directory that contains the Dockerfile
     image: keras-accent-training
     container_name:  accent_predictor
@@ -14,7 +14,33 @@ services:
       - "8080:8080"
     volumes: 
       - /share/uploads:/app/webserver/uploads
-      - /share/saved_models:/app/saved_models
+
+  usa_predictor:
+    build: ../../keras-accent-trainer # maps the directory that contains the Dockerfile
+    image: keras-accent-training
+    container_name:  accent_predictor
+    command: "python webserver/serve.py"
+    environment:
+      - PORT=8080
+      - HOST=0.0.0.0
+    ports:
+      - "8080:8080"
+    volumes:
+      - /share/uploads:/app/webserver/uploads
+
+
+  predictor:
+    build: ../../keras-accent-trainer # maps the directory that contains the Dockerfile
+    image: keras-accent-training
+    container_name:  accent_predictor
+    command: "python webserver/serve.py"
+    environment:
+      - PORT=8080
+      - HOST=0.0.0.0
+    ports:
+      - "8080:8080"
+    volumes:
+      - /share/uploads:/app/webserver/uploads
 
   # change to have everything in one docker
   bot:
