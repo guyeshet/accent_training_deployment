@@ -9,7 +9,7 @@ services:
   usa_predictor:
     environment:
       - MODEL_TYPE=usa_english_speakers
-      - MODEL_NUM=cc1ab98bec194d9b8fbbe3ecb21c95d6
+      - MODEL_NUM=a1cf332450594f849d8eb27e605dd8d0
 
   uk_predictor:
     environment:
