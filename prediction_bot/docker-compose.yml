@@ -33,3 +33,6 @@ services:
     depends_on: 
       - usa_predictor
       - uk_predictor
+
+  redis:
+    image: "redis:alpine"
