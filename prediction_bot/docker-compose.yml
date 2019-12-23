@@ -29,7 +29,7 @@ services:
     environment:
       - BOT_ID=XXXX
     ports:
-      - "0.0.0.0:80:80"
+      - "0.0.0.0:8000:8000"
     depends_on: 
       - usa_predictor
       - uk_predictor
